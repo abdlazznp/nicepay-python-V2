@@ -3,9 +3,14 @@ from datetime import datetime
 
 
 class dataGenerator:
+
+    @staticmethod
+    def getTransactionHeader():
+        headerMap = {"Content-Type": "Application/JSON"}
+        return headerMap
+
     @staticmethod
     def getTransactionBody():
-        headerMap = {"Content-Type": "Application/JSON"}
         bodyMap = {}
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         bodyMap["billingNm"] = "John Doe"
@@ -23,5 +28,3 @@ class dataGenerator:
         bodyMap["deliveryState"] = "DKI Jakarta"
         bodyMap["deliveryCountry"] = "Indonesia"
         bodyMap["deliveryPostCd"] = "10202"
-
-        # bodyMap[""]

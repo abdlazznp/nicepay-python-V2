@@ -17,3 +17,37 @@ class CreditCard:
             "instmntMon": self.instmntMon,
             "recurrOpt": self.recurrOpt
         })
+
+
+class BuilderCreditCard:
+    def __init__(self):
+        self.payMethod = None
+        self.instmntType = None
+        self.instmntMon = None
+        self.recurrOpt = None
+
+    def setPayMethod(self, payMethod):
+        self.payMethod = payMethod
+        return self
+
+    def setInstmntType(self, instmntType):
+        self.instmntType = instmntType
+        return self
+
+    def setInstmntMon(self, instmntMon):
+        self.instmntMon = instmntMon
+        return self
+
+    def setRecurrOpt(self, recurrOpt):
+        self.recurrOpt = recurrOpt
+        return self
+
+
+class BuildCreditCard(BuilderCreditCard):
+    def build(self):
+        return CreditCard(
+            self.payMethod,
+            self.instmntType,
+            self.instmntMon,
+            self.recurrOpt
+        )
