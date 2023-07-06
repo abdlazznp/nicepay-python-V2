@@ -3,7 +3,7 @@ class ConstantsGeneral:
     _STAGING_BASE_URL = "https://staging.nicepay.co.id"
     _PRODUCTION_BASE_URL = "https://www.nicepay.co.id"
     _I_MID = "IONPAYTEST"
-    _MERCHANT_KEY = ""
+    _MERCHANT_KEY = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A=="
     _PAY_METHOD_CREDIT_CARD = "01"
     _PAY_METHOD_VIRTUAL_ACCOUNT = "02"
     _PAY_METHOD_CONVENIENCE_STORE = "03"
@@ -13,6 +13,10 @@ class ConstantsGeneral:
     _PAY_METHOD_PAYOUT = "07"
     _PAY_METHOD_QRIS = "08"
     _PAY_METHOD_GPN = "09"
+    _CURRENCY = "IDR"
+    _CALLBACK_URL = ""
+    _DB_PROCESS_URL = ""
+
 
 
     @staticmethod
