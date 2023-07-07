@@ -1,0 +1,3 @@
+class testCreditCardPayment:
+    item = {}
+

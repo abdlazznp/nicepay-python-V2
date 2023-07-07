@@ -8,7 +8,7 @@ class CartData:
     def jsonCartData(self):
         return ({
             "count": self.count,
-            "item": self.count
+            "item": self.item
         })
 
 
