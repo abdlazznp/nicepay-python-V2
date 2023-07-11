@@ -36,9 +36,10 @@ class ServiceNicepay:
         log.info(a)
         return a
 
-c = ServiceNicepay.servicePayment(
 
-)
+# c = ServiceNicepay.servicePayment(
+#     "TESTMPGS0501202307101407318283"
+# )
 # b = ServiceNicepay.serviceRequest(
 #     {
 #         "timeStamp": "20230706170732",

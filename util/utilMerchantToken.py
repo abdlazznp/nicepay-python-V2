@@ -18,7 +18,7 @@ class MerchantToken:
         return merchantToken
 
 
-a = MerchantToken.getMerchantToken(datetime.now().strftime("%Y%m%d%H%M%S"), "NORMALTEST",
-                                   ("OrdNo" + datetime.now().strftime("%Y%m%d%H%M%S")), "10000",
-                                   "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==")
-print(a)
+# a = MerchantToken.getMerchantToken(datetime.now().strftime("%Y%m%d%H%M%S"), "NORMALTEST",
+#                                    ("OrdNo" + datetime.now().strftime("%Y%m%d%H%M%S")), "10000",
+#                                    "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A==")
+# print(a)

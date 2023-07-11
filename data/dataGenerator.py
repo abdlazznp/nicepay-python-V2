@@ -16,6 +16,11 @@ class DataGenerator:
         return headerMap
 
     @staticmethod
+    def getPaymentHeader():
+        headerMap = {"Content-Type": "Application/x-www-form-urlencoded"}
+        return headerMap
+
+    @staticmethod
     def getTransactionBody(body, cartData):
         bodyMap = {}
         log.info(body)
@@ -68,3 +73,6 @@ class DataGenerator:
 
         # return json.dumps(mergeData)
         return bodyMap
+
+    # @staticmethod
+    # def getTransaction
