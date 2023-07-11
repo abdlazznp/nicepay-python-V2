@@ -17,29 +17,25 @@ class ServiceNicepay:
     def serviceRequest(body):
         headers = DataGenerator.getTransactionHeader()
         endpoint = ConstantsEndpoints.registration()
-        response = apiClient.send(host,
-                                  headers,
-                                  body,
-                                  endpoint)
+        data = apiClient.send(host,
+                              headers,
+                              body,
+                              endpoint)
 
-        a = json.dumps(response)
-        log.info(a)
-        return a
+        response = json.dumps(data)
+        log.info(response)
+        return response
 
     @staticmethod
     def servicePayment(data):
         endpoint = ConstantsEndpoints.payment()
-        response = apiClient.get(host,
-                                 data,
-                                 endpoint)
-        a = json.dumps(response)
-        log.info(a)
-        return a
+        data = apiClient.get(host,
+                             data,
+                             endpoint)
+        response = json.dumps(data)
+        log.info(response)
+        return response
 
-
-# c = ServiceNicepay.servicePayment(
-#     "TESTMPGS0501202307101407318283"
-# )
 # b = ServiceNicepay.serviceRequest(
 #     {
 #         "timeStamp": "20230706170732",

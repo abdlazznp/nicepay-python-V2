@@ -64,25 +64,50 @@ class BuildCreditCard(BuilderCreditCard):
 
 class CreditCardPayment:
     def __init__(self,
+                 timestamp,
                  tXid,
                  cardNo,
                  cardExpYymm,
-                 cardCvv):
+                 cardCvv,
+                 merchantToken,
+                 referenceNo,
+                 amt):
+        self.timestamp = timestamp
         self.tXid = tXid
         self.cardNo = cardNo
         self.cardExpYymm = cardExpYymm
         self.cardCvv = cardCvv
+        self.merchantToken = merchantToken
+        self.referenceNo = referenceNo
+        self.amt = amt
 
     def dataCreditCard(self):
-        return f"{self.tXid}&{self.cardNo}&{self.cardExpYymm}&{self.cardCvv}"
+        return ({
+            "timeStamp": self.timestamp,
+            "tXid": self.tXid,
+            "cardNo": self.cardNo,
+            "cardExpYymm": self.cardExpYymm,
+            "cardCvv": self.cardCvv,
+            "merchantToken": self.merchantToken,
+            "referenceNo": self.referenceNo,
+            "amt": self.amt
+        })
 
 
 class BuilderCreditCardPayment:
     def __init__(self):
+        self.timestamp = None
         self.tXid = None
         self.cardNo = None
         self.cardExpYymm = None
         self.cardCvv = None
+        self.merchantToken = None
+        self.referenceNo = None
+        self.amt = None
+
+    def setTimestamp(self, timestamp):
+        self.timestamp = timestamp
+        return self
 
     def setTxid(self, tXid):
         self.tXid = tXid
@@ -100,12 +125,28 @@ class BuilderCreditCardPayment:
         self.cardCvv = cardCvv
         return self
 
+    def setMerchantToken(self, merchantToken):
+        self.merchantToken = merchantToken
+        return self
+
+    def setReferenceNo(self, referenceNo):
+        self.referenceNo = referenceNo
+        return self
+
+    def setAmt(self, amt):
+        self.amt = amt
+        return self
+
 
 class BuildCreditCardPayment(BuilderCreditCardPayment):
     def build(self):
         return CreditCardPayment(
+            self.timestamp,
             self.tXid,
             self.cardNo,
             self.cardExpYymm,
-            self.cardCvv
+            self.cardCvv,
+            self.merchantToken,
+            self.referenceNo,
+            self.amt
         )

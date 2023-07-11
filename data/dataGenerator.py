@@ -16,11 +16,6 @@ class DataGenerator:
         return headerMap
 
     @staticmethod
-    def getPaymentHeader():
-        headerMap = {"Content-Type": "Application/x-www-form-urlencoded"}
-        return headerMap
-
-    @staticmethod
     def getTransactionBody(body, cartData):
         bodyMap = {}
         log.info(body)
@@ -36,6 +31,7 @@ class DataGenerator:
         merchantKey = ConstantsGeneral.getMerchantKey()
         merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
         currency = ConstantsGeneral.getCurrency()
+        # callbackUrl = ConstantsGeneral.getCallbackUrl()
         dbProcessUrl = ConstantsGeneral.getDbProcessUrl()
 
         bodyMap["timeStamp"] = timestamp
@@ -58,6 +54,7 @@ class DataGenerator:
         bodyMap["deliveryPostCd"] = "10202"
         bodyMap["goodsNm"] = "TESTING PY V2"
         bodyMap["description"] = "This is testing transaction CC - n1tr0"
+        # bodyMap["callBackUrl"] = callbackUrl
         bodyMap["dbProcessUrl"] = dbProcessUrl
         bodyMap["cartData"] = cartData
         bodyMap["currency"] = currency
@@ -74,5 +71,28 @@ class DataGenerator:
         # return json.dumps(mergeData)
         return bodyMap
 
-    # @staticmethod
-    # def getTransaction
+    @staticmethod
+    def getPaymentBody(body):
+        bodyMap = {}
+        callbackUrl = ConstantsGeneral.getCallbackUrl()
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        timestamp = data["timeStamp"]
+        referenceNo = data["referenceNo"]
+        amt = data["amt"]
+        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+
+        bodyMap["callBackUrl"] = callbackUrl
+        bodyMap["merchantToken"] = merchantToken
+        b = json.dumps(bodyMap)
+        cleanJson = json.loads(b)
+
+        del cleanJson["amt"]
+        del cleanJson["referenceNo"]
+
+        print(cleanJson)
+        return cleanJson

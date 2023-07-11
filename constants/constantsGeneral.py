@@ -2,7 +2,7 @@ class ConstantsGeneral:
     _SANDBOX_BASE_URL = "https://dev.nicepay.co.id"
     _STAGING_BASE_URL = "https://staging.nicepay.co.id"
     _PRODUCTION_BASE_URL = "https://www.nicepay.co.id"
-    _I_MID = "TESTMPGS05"
+    _I_MID = "IONPAYTEST"
     _MERCHANT_KEY = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A=="
     _PAY_METHOD_CREDIT_CARD = "01"
     _PAY_METHOD_VIRTUAL_ACCOUNT = "02"
@@ -14,8 +14,8 @@ class ConstantsGeneral:
     _PAY_METHOD_QRIS = "08"
     _PAY_METHOD_GPN = "09"
     _CURRENCY = "IDR"
-    _DB_PROCESS_URL = "https://webhook.site/e15ef201-98a9-428c-85d4-a0c6458939c3"
     _CALLBACK_URL = "https://www.nicepay.co.id/IONPAY_CLIENT/paymentResult.jsp"
+    _DB_PROCESS_URL = "https://webhook.site/e15ef201-98a9-428c-85d4-a0c6458939c3"
 
     @staticmethod
     def getSandboxBaseUrl():
@@ -76,6 +76,10 @@ class ConstantsGeneral:
     @staticmethod
     def getCurrency():
         return ConstantsGeneral._CURRENCY
+
+    @staticmethod
+    def getCallbackUrl():
+        return ConstantsGeneral._CALLBACK_URL
 
     @staticmethod
     def getDbProcessUrl():
