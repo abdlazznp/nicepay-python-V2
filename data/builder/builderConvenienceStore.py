@@ -1,36 +1,36 @@
-class VirtualAccount:
+class ConvenienceStore:
     def __init__(self,
                  payMethod,
-                 bankCd,
-                 vacctValidDt,
-                 vacctValidTm,
+                 mitraCd,
+                 payValidDt,
+                 payValidTm,
                  merFixAcctId,
                  amt
                  ):
         self.payMethod = payMethod
-        self.bankCd = bankCd
-        self.vacctValidDt = vacctValidDt
-        self.vacctValidTm = vacctValidTm
+        self.mitraCd = mitraCd
+        self.payValidDt = payValidDt
+        self.payValidTm = payValidTm
         self.merFixAcctId = merFixAcctId
         self.amt = amt
 
-    def jsonVirtualAccount(self):
+    def jsonConvenienceStore(self):
         return ({
             "payMethod": self.payMethod,
-            "bankCd": self.bankCd,
-            "vacctValidDt": self.vacctValidDt,
-            "vacctValidTm": self.vacctValidTm,
+            "mitraCd": self.mitraCd,
+            "payValidDt": self.payValidDt,
+            "payValidTm": self.payValidTm,
             "merFixAcctId": self.merFixAcctId,
             "amt": self.amt
         })
 
 
-class BuilderVirtualAccount:
+class BuilderConvenienceStore:
     def __init__(self):
         self.payMethod = None
         self.bankCd = None
-        self.vacctValidDt = None
-        self.vacctValidTm = None
+        self.payValidDt = None
+        self.payValidTm = None
         self.merFixAcctId = None
         self.amt = None
 
@@ -38,16 +38,16 @@ class BuilderVirtualAccount:
         self.payMethod = payMethod
         return self
 
-    def setBankCd(self, bankCd):
-        self.bankCd = bankCd
+    def setMitraCd(self, mitraCd):
+        self.mitraCd = mitraCd
         return self
 
-    def setVacctValidDt(self, vacctValidDt):
-        self.vacctValidDt = vacctValidDt
+    def setPayValidDt(self, payValidDt):
+        self.payValidDt = payValidDt
         return self
 
-    def setVacctValidTm(self, vacctValidTm):
-        self.vacctValidTm = vacctValidTm
+    def setPayValidTm(self, payValidTm):
+        self.payValidTm = payValidTm
         return self
 
     def setMerFixAcctId(self, merFixAcctId):
@@ -59,13 +59,13 @@ class BuilderVirtualAccount:
         return self
 
 
-class BuildVirtualAccount(BuilderVirtualAccount):
+class BuildConvenienceStore(BuilderConvenienceStore):
     def build(self):
-        return VirtualAccount(
+        return ConvenienceStore(
             self.payMethod,
             self.bankCd,
-            self.vacctValidDt,
-            self.vacctValidTm,
+            self.payValidDt,
+            self.payValidTm,
             self.merFixAcctId,
             self.amt
         )

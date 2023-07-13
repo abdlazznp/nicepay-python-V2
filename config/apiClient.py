@@ -15,8 +15,8 @@ class apiClient:
     @staticmethod
     def get(host, request, endpoint):
         response = requests.post(url=host + endpoint, data=request)
-        print(request)
-        print(response.text)
+        # print(request)
+        # print(response.text)
         # soup = BeautifulSoup(response.text, 'html.parser')
         # form = soup.find('form')
         # inputFields = form.find_all('input')

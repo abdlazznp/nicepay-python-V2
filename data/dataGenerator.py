@@ -18,7 +18,7 @@ class DataGenerator:
     @staticmethod
     def getTransactionBody(body, cartData):
         bodyMap = {}
-        log.info(body)
+        # log.info(body)
         a = json.dumps(body)
         dataBody = json.loads(a)
         amt = dataBody["amt"]
@@ -60,7 +60,7 @@ class DataGenerator:
         bodyMap["currency"] = currency
         bodyMap["merchantToken"] = merchantToken
         bodyMap.update(body)
-        log.headers(bodyMap)
+        # log.headers(bodyMap)
         # c = json.loads(a)
         # d = json.dumps(bodyMap)
         # e = json.loads(d)

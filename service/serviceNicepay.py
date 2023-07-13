@@ -23,17 +23,22 @@ class ServiceNicepay:
                               endpoint)
 
         response = json.dumps(data)
-        log.info(response)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(body))
+        log.info("Response Data : " + json.dumps(data))
+        # log.info(response)
         return response
 
     @staticmethod
     def servicePayment(data):
         endpoint = ConstantsEndpoints.payment()
-        data = apiClient.get(host,
-                             data,
-                             endpoint)
-        response = json.dumps(data)
-        log.info(response)
+        response = apiClient.get(host,
+                                 data,
+                                 endpoint)
+        a = json.dumps(response)
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+        # log.info(response)
         return response
 
 # b = ServiceNicepay.serviceRequest(
