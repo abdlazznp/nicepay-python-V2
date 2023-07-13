@@ -5,8 +5,7 @@ class VirtualAccount:
                  vacctValidDt,
                  vacctValidTm,
                  merFixAcctId,
-                 amt
-                 ):
+                 amt):
         self.payMethod = payMethod
         self.bankCd = bankCd
         self.vacctValidDt = vacctValidDt

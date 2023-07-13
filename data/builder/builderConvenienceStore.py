@@ -5,8 +5,7 @@ class ConvenienceStore:
                  payValidDt,
                  payValidTm,
                  merFixAcctId,
-                 amt
-                 ):
+                 amt):
         self.payMethod = payMethod
         self.mitraCd = mitraCd
         self.payValidDt = payValidDt
@@ -63,7 +62,7 @@ class BuildConvenienceStore(BuilderConvenienceStore):
     def build(self):
         return ConvenienceStore(
             self.payMethod,
-            self.bankCd,
+            self.mitraCd,
             self.payValidDt,
             self.payValidTm,
             self.merFixAcctId,

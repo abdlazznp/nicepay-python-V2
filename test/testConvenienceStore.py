@@ -7,15 +7,10 @@ from service.serviceNicepay import ServiceNicepay
 class testConvenienceStore:
     amt = 10000
     itemCartData = {
-        "goods_id": "BB12345678",
-        "goods_detail": "BB12345678",
-        "goods_name": "Pasar Modern",
-        "goods_amt": amt,
-        "goods_type": "Sembako",
-        "goods_url": "https://merchant.com/cellphones/iphone5s_64g",
-        "goods_quantity": "1",
-        "goods_sellers_id": "SEL123",
-        "goods_sellers_name": "Sellers 1"
+        "img_url": "https://cdn.eraspace.com/pub/media/catalog/product/i/p/iphone_13_pro_max_silver_1_5.jpg",
+        "goods_name": "iPhone13ProMax",
+        "goods_detail": "1TB-White",
+        "goods_amt": amt
     }
 
     bodyCartData = (

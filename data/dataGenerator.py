@@ -96,3 +96,23 @@ class DataGenerator:
 
         print(cleanJson)
         return cleanJson
+
+
+    @staticmethod
+    def getCancelBody(body):
+        bodyMap = {}
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        referenceNo = data["referenceNo"]
+        amt = data["amt"]
+        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap

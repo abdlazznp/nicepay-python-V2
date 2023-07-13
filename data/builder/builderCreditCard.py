@@ -4,8 +4,7 @@ class CreditCard:
                  instmntType,
                  instmntMon,
                  recurrOpt,
-                 amt
-                 ):
+                 amt):
         self.payMethod = payMethod
         self.instmntType = instmntType
         self.instmntMon = instmntMon

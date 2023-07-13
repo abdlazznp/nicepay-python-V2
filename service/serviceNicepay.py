@@ -41,6 +41,19 @@ class ServiceNicepay:
         # log.info(response)
         return response
 
+    @staticmethod
+    def serviceCancel(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.cancel()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        a = json.dumps(response)
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+        # log.info(response)
+        return response
 # b = ServiceNicepay.serviceRequest(
 #     {
 #         "timeStamp": "20230706170732",
