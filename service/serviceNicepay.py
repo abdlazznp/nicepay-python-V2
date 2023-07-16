@@ -35,7 +35,7 @@ class ServiceNicepay:
         response = apiClient.get(host,
                                  data,
                                  endpoint)
-        a = json.dumps(response)
+        # a = json.dumps(response)
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
         # log.info(response)
@@ -49,11 +49,25 @@ class ServiceNicepay:
                                   headers,
                                   data,
                                   endpoint)
-        a = json.dumps(response)
+        # a = json.dumps(response)
+        log.info("Headers : " + json.dumps(headers))
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
         # log.info(response)
         return response
+
+    @staticmethod
+    def serviceInquiry(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.inquiry()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
 # b = ServiceNicepay.serviceRequest(
 #     {
 #         "timeStamp": "20230706170732",

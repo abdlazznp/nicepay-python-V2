@@ -2,13 +2,11 @@ class Cancel:
     def __init__(self,
                  payMethod,
                  tXid,
-                 referenceNo,
                  cancelType,
                  cancelMsg,
                  amt):
         self.payMethod = payMethod
         self.tXid = tXid
-        self.referenceNo = referenceNo
         self.cancelType = cancelType
         self.cancelMsg = cancelMsg
         self.amt = amt
@@ -17,7 +15,6 @@ class Cancel:
         return ({
             "payMethod": self.payMethod,
             "tXid": self.tXid,
-            "referenceNo": self.referenceNo,
             "cancelType": self.cancelType,
             "cancelMsg": self.cancelMsg,
             "amt": self.amt
@@ -27,7 +24,6 @@ class BuilderCancel:
     def __init__(self):
         self.payMethod = None
         self.tXid = None
-        self.referenceNo = None
         self.cancelType = None
         self.cancelMsg = None
         self.amt = None
@@ -40,9 +36,6 @@ class BuilderCancel:
         self.tXid = tXid
         return self
 
-    def setReferenceNo(self, referenceNo):
-        self.referenceNo = referenceNo
-        return self
 
     def setCancelType(self, cancelType):
         self.cancelType = cancelType
@@ -62,7 +55,6 @@ class BuildCancel(BuilderCancel):
         return Cancel(
             self.payMethod,
             self.tXid,
-            self.referenceNo,
             self.cancelType,
             self.cancelMsg,
             self.amt

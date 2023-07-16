@@ -8,8 +8,7 @@ class testCancel:
     bodyCancel = (
         builderCancel.BuildCancel()
         .setPayMethod(ConstantsGeneral.getPayMethodVirtualAccount())
-        .setTxid("NORMALTEST02202307140000112364")
-        .setReferenceNo("OrdNo20230714000010")
+        .setTxid("NORMALTEST02202307141014464233")
         .setCancelType("1")
         .setCancelMsg("Testing Cancellation - n1tr0")
         .setAmt("10000")

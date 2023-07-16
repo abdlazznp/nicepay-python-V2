@@ -68,3 +68,69 @@ class BuildVirtualAccount(BuilderVirtualAccount):
             self.merFixAcctId,
             self.amt
         )
+
+
+# VIRTUAL ACCOUNT FIXED OPEN REGISTRATION
+class VirtualAccountFixedOpenReg:
+    def __init__(self,
+                 customerId,
+                 customerNm):
+        self.customerId = customerId
+        self.customerNm = customerNm
+
+    def jsonVAFixedOpenReg(self):
+        return ({
+            "customerId": self.customerId,
+            "customerNm": self.customerNm
+        })
+
+
+class BuilderVirtualAccountFixedOpenReg:
+    def __init__(self):
+        self.customerId = None
+        self.customerNm = None
+
+    def setCustomerId(self, customerId):
+        self.customerId = customerId
+        return self
+
+    def setCustomerNm(self, customerNm):
+        self.customerNm = customerNm
+        return self
+
+
+class BuildVirtualAccountFixedOpenReg(BuilderVirtualAccountFixedOpenReg):
+    def build(self):
+        return VirtualAccountFixedOpenReg(
+            self.customerId,
+            self.customerNm
+        )
+
+
+# VIRTUAL ACCOUNT FIXED OPEN INQUIRY (CUSTOMER INQUIRY)
+class VirtualAccountFixedOpenCustInq:
+    def __init__(self,
+                 customerId):
+        self.customerId = customerId
+
+    def jsonVAFixedOpenCustInq(self):
+        return ({
+            "customerId": self.customerId
+        })
+
+
+class BuilderVirtualAccountFixedOpenCustInq:
+    def __init__(self):
+        self.customerId = None
+
+    def setCustomerId(self, customerId):
+        self.customerId = customerId
+        return self
+
+
+class BuildVirtualAccountFixedOpenCustInq(BuilderVirtualAccountFixedOpenCustInq):
+    def build(self):
+        return VirtualAccountFixedOpenCustInq(
+            self.customerId
+        )
+

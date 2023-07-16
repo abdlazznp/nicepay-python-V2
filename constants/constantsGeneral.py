@@ -2,7 +2,7 @@ class ConstantsGeneral:
     _SANDBOX_BASE_URL = "https://dev.nicepay.co.id"
     _STAGING_BASE_URL = "https://staging.nicepay.co.id"
     _PRODUCTION_BASE_URL = "https://www.nicepay.co.id"
-    _I_MID = "NORMALTEST"
+    _I_MID = "TNICEEW051"
     _MERCHANT_KEY = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A=="
     _PAY_METHOD_CREDIT_CARD = "01"
     _PAY_METHOD_VIRTUAL_ACCOUNT = "02"
@@ -17,6 +17,10 @@ class ConstantsGeneral:
     _CALLBACK_URL = "https://www.nicepay.co.id/IONPAY_CLIENT/paymentResult.jsp"
     _DB_PROCESS_URL = "https://webhook.site/e15ef201-98a9-428c-85d4-a0c6458939c3"
     _USER_IP = "127.0.0.1"
+    _USER_SESSION_ID = ""
+    _USER_AGENT = ""
+    _USER_LANGUAGE = ""
+    _SHOP_ID = ""
 
     @staticmethod
     def getSandboxBaseUrl():

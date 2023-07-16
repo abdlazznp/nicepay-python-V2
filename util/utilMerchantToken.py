@@ -18,6 +18,7 @@ class MerchantToken:
     def getMerchantTokenCancel(timestamp, iMid, tXid, amt, merchantKey):
         data = f"{timestamp}{iMid}{tXid}{amt}{merchantKey}"
         merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
         return merchantToken
 
 # a = MerchantToken.getMerchantToken(datetime.now().strftime("%Y%m%d%H%M%S"), "NORMALTEST",

@@ -55,6 +55,8 @@ class DataGenerator:
         bodyMap["goodsNm"] = "TESTING PY V2"
         bodyMap["description"] = "This is testing transaction CC - n1tr0"
         # bodyMap["callBackUrl"] = callbackUrl
+        bodyMap["shopId"] = ""
+        # bodyMap["userSessionId"] = "697D6922C961070967D3BA1BA5699C2C"
         bodyMap["dbProcessUrl"] = dbProcessUrl
         bodyMap["cartData"] = cartData
         bodyMap["currency"] = currency
@@ -97,9 +99,8 @@ class DataGenerator:
         print(cleanJson)
         return cleanJson
 
-
     @staticmethod
-    def getCancelBody(body):
+    def getInquiryBody(body):
         bodyMap = {}
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
         iMid = ConstantsGeneral.getImid()
@@ -114,5 +115,29 @@ class DataGenerator:
 
         bodyMap["timeStamp"] = timestamp
         bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+
+    @staticmethod
+    def getCancelBody(body):
+        bodyMap = {}
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+        cancelUserIp = ConstantsGeneral.getUserIp()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        tXid = data["tXid"]
+        amt = data["amt"]
+        merchantToken = MerchantToken.getMerchantTokenCancel(timestamp, iMid, tXid, amt, merchantKey)
+
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+        bodyMap["cancelUserId"] = ""
+        bodyMap["cancelUserIp"] = cancelUserIp
+        bodyMap["cancelServerIp"] = cancelUserIp
 
         return bodyMap
