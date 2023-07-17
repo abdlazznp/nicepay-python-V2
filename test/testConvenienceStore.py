@@ -26,7 +26,7 @@ class testConvenienceStore:
         .setMitraCd("ALMA")
         .setPayValidDt("")
         .setPayValidTm("")
-        .setMerFixAcctId("1113")
+        .setMerFixAcctId("")
         .setAmt(amt)
         .build()
     )

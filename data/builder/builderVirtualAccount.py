@@ -71,7 +71,7 @@ class BuildVirtualAccount(BuilderVirtualAccount):
 
 
 # VIRTUAL ACCOUNT FIXED OPEN REGISTRATION
-class VirtualAccountFixedOpenReg:
+class VAFixedOpenReg:
     def __init__(self,
                  customerId,
                  customerNm):
@@ -85,7 +85,7 @@ class VirtualAccountFixedOpenReg:
         })
 
 
-class BuilderVirtualAccountFixedOpenReg:
+class BuilderVAFixedOpenReg:
     def __init__(self):
         self.customerId = None
         self.customerNm = None
@@ -99,16 +99,16 @@ class BuilderVirtualAccountFixedOpenReg:
         return self
 
 
-class BuildVirtualAccountFixedOpenReg(BuilderVirtualAccountFixedOpenReg):
+class BuildVAFixedOpenReg(BuilderVAFixedOpenReg):
     def build(self):
-        return VirtualAccountFixedOpenReg(
+        return VAFixedOpenReg(
             self.customerId,
             self.customerNm
         )
 
 
 # VIRTUAL ACCOUNT FIXED OPEN INQUIRY (CUSTOMER INQUIRY)
-class VirtualAccountFixedOpenCustInq:
+class VAFixedOpenCustInq:
     def __init__(self,
                  customerId):
         self.customerId = customerId
@@ -119,7 +119,7 @@ class VirtualAccountFixedOpenCustInq:
         })
 
 
-class BuilderVirtualAccountFixedOpenCustInq:
+class BuilderVAFixedOpenCustInq:
     def __init__(self):
         self.customerId = None
 
@@ -128,9 +128,100 @@ class BuilderVirtualAccountFixedOpenCustInq:
         return self
 
 
-class BuildVirtualAccountFixedOpenCustInq(BuilderVirtualAccountFixedOpenCustInq):
+class BuildVAFixedOpenCustInq(BuilderVAFixedOpenCustInq):
     def build(self):
-        return VirtualAccountFixedOpenCustInq(
+        return VAFixedOpenCustInq(
             self.customerId
         )
 
+
+# VIRTUAL ACCOUNT FIXED OPEN INQUIRY (DEPOSIT INQUIRY)
+class VAFixedOpenDepositInquiry:
+    def __init__(self,
+                 vacctNo,
+                 startDt,
+                 endDt):
+        self.vacctNo = vacctNo
+        self.startDt = startDt
+        self.endDt = endDt
+
+    def jsonVAFixedOpenDepositInq(self):
+        return ({
+            "vacctNo": self.vacctNo,
+            "startDt": self.startDt,
+            "endDt": self.endDt
+        })
+
+
+class BuilderVAFixedOpenDepositInq:
+    def __init__(self):
+        self.vacctNo = None
+        self.startDt = None
+        self.endDt = None
+
+    def setVacctNo(self, vacctNo):
+        self.vacctNo = vacctNo
+        return self
+
+    def setStartDt(self, startDt):
+        self.startDt = startDt
+        return self
+
+    def setEndDt(self, endDt):
+        self.endDt = endDt
+        return self
+
+
+class BuildVAFixedOpenDepositInq(BuilderVAFixedOpenDepositInq):
+    def build(self):
+        return VAFixedOpenDepositInquiry(
+            self.vacctNo,
+            self.startDt,
+            self.endDt
+        )
+
+
+# VIRTUAL ACCOUNT FIXED OPEN CUSTOMER UPDATE
+class VAFixedOpenCustomerUpdate:
+    def __init__(self,
+                 customerId,
+                 customerNm,
+                 updateType):
+        self.customerId = customerId
+        self.customerNm = customerNm
+        self.updateType = updateType
+
+    def jsonVAFixedOpenCustomerUpdate(self):
+        return ({
+            "customerId": self.customerId,
+            "customerNm": self.customerNm,
+            "updateType": self.updateType
+        })
+
+
+class BuilderVAFixedOpenCustomerUpdate:
+    def __init__(self):
+        self.customerId = None
+        self.customerNm = None
+        self.updateType = None
+
+    def setCustomerId(self, customerId):
+        self.customerId = customerId
+        return self
+
+    def setCustomerNm(self, customerNm):
+        self.customerNm = customerNm
+        return self
+
+    def setUpdateType(self, updateType):
+        self.updateType = updateType
+        return self
+
+
+class BuildVAFixedOpenCustomerUpdate(BuilderVAFixedOpenCustomerUpdate):
+    def build(self):
+        return VAFixedOpenCustomerUpdate(
+            self.customerId,
+            self.customerNm,
+            self.updateType
+        )
