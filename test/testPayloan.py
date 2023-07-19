@@ -12,7 +12,7 @@ class testPayloan:
         "goods_detail": "1TB-White",
         "goods_amt": amt,
         "goods_quantity": "1",
-        "goods_type": "Electronics",
+        "goods_type": "others",
         "goods_url": "https://cdn.eraspace.com/pub/media/catalog/product/i/p/iphone_13_pro_max_silver_1_5.jpg",
         "goods_sellers_id": "SEL123",
         "goods_sellers_name": "Sellers"
@@ -50,7 +50,7 @@ class testPayloan:
         .setPayMethod(ConstantsGeneral.getPayMethodPayloan())
         .setInstmntType("1")
         .setInstmntMon("1")
-        .setMitraCd("IDNA")
+        .setMitraCd("AKLP")
         .setAmt(amt)
         .build()
     )

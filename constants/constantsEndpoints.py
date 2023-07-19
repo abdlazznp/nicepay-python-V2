@@ -34,3 +34,63 @@ class ConstantsEndpoints:
     @staticmethod
     def cancel():
         return ConstantsEndpoints._CANCEL
+
+    @staticmethod
+    def vaFixedOpenRegist():
+        return ConstantsEndpoints._VA_FIXED_OPEN_REGISTRATION
+
+    @staticmethod
+    def vaFixedOpenCustInq():
+        return ConstantsEndpoints._VA_FIXED_OPEN_CUSTOMER_INQUIRY
+
+    @staticmethod
+    def vaFixedOpenDepositInq():
+        return ConstantsEndpoints._VA_FIXED_OPEN_DEPOSIT_INQUIRY
+
+    @staticmethod
+    def vaFixedOpenCustUpdate():
+        return ConstantsEndpoints._VA_FIXED_OPEN_CUSTOMER_UPDATE
+
+    @staticmethod
+    def payoutRegistration():
+        return ConstantsEndpoints._PAYOUT_REGISTRATION
+
+    @staticmethod
+    def payoutApprove():
+        return ConstantsEndpoints._PAYOUT_APPROVE
+
+    @staticmethod
+    def payoutInquiry():
+        return ConstantsEndpoints._PAYOUT_INQUIRY
+
+    @staticmethod
+    def payoutReject():
+        return ConstantsEndpoints._PAYOUT_REJECT
+
+    @staticmethod
+    def payoutCancel():
+        return ConstantsEndpoints._PAYOUT_CANCEL
+
+    @staticmethod
+    def payoutBalanceInq():
+        return ConstantsEndpoints._PAYOUT_BALANCE_INQUIRY
+
+    @staticmethod
+    def payoutTransHistInq():
+        return ConstantsEndpoints._PAYOUT_TRANSACTION_HISTORY_INQUIRY
+
+    @staticmethod
+    def payoutRecurringReq():
+        return ConstantsEndpoints._PAYOUT_RECURRING_REQUEST
+
+    @staticmethod
+    def payoutSellerBalanceTransfer():
+        return ConstantsEndpoints._PAYOUT_SELLER_BALANCE_TRANSFER
+
+    @staticmethod
+    def payoutMerchantBalanceTransfer():
+        return ConstantsEndpoints._PAYOUT_MERCHANT_BALANCE_TRANSFER
+
+    @staticmethod
+    def payoutListInquiry():
+        return ConstantsEndpoints._PAYOUT_LIST_INQUIRY

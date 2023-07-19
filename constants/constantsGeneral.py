@@ -2,7 +2,7 @@ class ConstantsGeneral:
     _SANDBOX_BASE_URL = "https://dev.nicepay.co.id"
     _STAGING_BASE_URL = "https://staging.nicepay.co.id"
     _PRODUCTION_BASE_URL = "https://www.nicepay.co.id"
-    _I_MID = "PAYLOANTES"
+    _I_MID = "NORMALTEST"
     _MERCHANT_KEY = "33F49GnCMS1mFYlGXisbUDzVf2ATWCl9k3R++d5hDd3Frmuos/XLx8XhXpe+LDYAbpGKZYSwtlyyLOtS/8aD7A=="
     _PAY_METHOD_CREDIT_CARD = "01"
     _PAY_METHOD_VIRTUAL_ACCOUNT = "02"

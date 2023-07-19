@@ -66,3 +66,16 @@ class ServiceNicepay:
         log.info("Headers : " + json.dumps(headers))
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
+
+
+    @staticmethod
+    def servicePayoutReg(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.payoutRegistration()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))

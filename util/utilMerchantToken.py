@@ -20,3 +20,14 @@ class MerchantToken:
         merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
         log.info(f"util - Generated MerchantToken : {merchantToken}")
         return merchantToken
+
+    @staticmethod
+    def getMerchantTokenPayoutRegistration(timestamp, iMid, amt, accountNo, merchantKey):
+        data = f"{timestamp}{iMid}{amt}{accountNo}{merchantKey}"
+        merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
+        return merchantToken
+
+    @staticmethod
+    def getMerchantTokenPayoutApprove():
+        data = ""
