@@ -79,3 +79,87 @@ class ServiceNicepay:
         log.info("Headers : " + json.dumps(headers))
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutApprove(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.payoutApprove()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutReject(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.payoutReject()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutInquiry(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ""
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutCancel(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ""
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutBalanceInquiry(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ""
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def servicePayoutTransHistInq(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ""
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    @staticmethod
+    def serviceVAFixedOpenRegist(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ""
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))

@@ -131,6 +131,9 @@ class PayoutApprove:
 
     def jsonPayoutApprove(self):
         return ({
+            "timeStamp": "",
+            "iMid": "",
+            "merchantToken": "",
             "tXid": self.tXid
         })
 

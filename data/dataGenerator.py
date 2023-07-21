@@ -218,4 +218,49 @@ class DataGenerator:
         bodyMap.update(body)
         a = json.dumps(bodyMap)
         data = json.loads(a)
+        tXid = data["tXid"]
+        merchantToken = MerchantToken.getMerchantTokenPayoutApprove(timestamp, iMid, tXid, merchantKey)
 
+        bodyMap["iMid"] = iMid
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    @staticmethod
+    def getPayoutReject(body):
+        bodyMap = {}
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        tXid = data["tXid"]
+        merchantToken = MerchantToken.getMerchantTokenPayoutReject(timestamp, iMid, tXid, merchantKey)
+
+        bodyMap["iMid"] = iMid
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    # @staticmethod
+    # def getPayoutApproveReject(body):
+    #     bodyMap = {}
+    #     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    #     iMid = ConstantsGeneral.getImid()
+    #     merchantKey = ConstantsGeneral.getMerchantKey()
+    #
+    #     bodyMap.update(body)
+    #     a = json.dumps(bodyMap)
+    #     data = json.loads(a)
+    #     tXid = data["tXid"]
+    #     merchantToken = MerchantToken.getMerchantTokenPayoutReject(timestamp, iMid, tXid, merchantKey)
+    #
+    #     bodyMap["iMid"] = iMid
+    #     bodyMap["timeStamp"] = timestamp
+    #     bodyMap["merchantToken"] = merchantToken
+    #
+    #     return bodyMap
