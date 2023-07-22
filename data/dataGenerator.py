@@ -18,7 +18,6 @@ class DataGenerator:
     @staticmethod
     def getTransactionBody(body, cartData):
         bodyMap = {}
-        # log.info(body)
         a = json.dumps(body)
         dataBody = json.loads(a)
         amt = dataBody["amt"]
@@ -31,7 +30,6 @@ class DataGenerator:
         merchantKey = ConstantsGeneral.getMerchantKey()
         merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
         currency = ConstantsGeneral.getCurrency()
-        # callbackUrl = ConstantsGeneral.getCallbackUrl()
         dbProcessUrl = ConstantsGeneral.getDbProcessUrl()
 
         bodyMap["timeStamp"] = timestamp
@@ -53,24 +51,14 @@ class DataGenerator:
         bodyMap["deliveryCountry"] = "Indonesia"
         bodyMap["deliveryPostCd"] = "10202"
         bodyMap["goodsNm"] = "TESTING PY V2"
-        bodyMap["description"] = "This is testing transaction CC - n1tr0"
-        # bodyMap["callBackUrl"] = callbackUrl
+        bodyMap["description"] = "This is testing transaction - n1tr0"
         bodyMap["shopId"] = ""
-        # bodyMap["userSessionId"] = "697D6922C961070967D3BA1BA5699C2C"
         bodyMap["dbProcessUrl"] = dbProcessUrl
         bodyMap["cartData"] = cartData
         bodyMap["currency"] = currency
         bodyMap["merchantToken"] = merchantToken
         bodyMap.update(body)
-        # log.headers(bodyMap)
-        # c = json.loads(a)
-        # d = json.dumps(bodyMap)
-        # e = json.loads(d)
-        # mergeData = e.copy()
-        # mergeData.update(c)
-        # log.info(mergeData)
 
-        # return json.dumps(mergeData)
         return bodyMap
 
     @staticmethod
@@ -246,21 +234,41 @@ class DataGenerator:
 
         return bodyMap
 
-    # @staticmethod
-    # def getPayoutApproveReject(body):
-    #     bodyMap = {}
-    #     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    #     iMid = ConstantsGeneral.getImid()
-    #     merchantKey = ConstantsGeneral.getMerchantKey()
-    #
-    #     bodyMap.update(body)
-    #     a = json.dumps(bodyMap)
-    #     data = json.loads(a)
-    #     tXid = data["tXid"]
-    #     merchantToken = MerchantToken.getMerchantTokenPayoutReject(timestamp, iMid, tXid, merchantKey)
-    #
-    #     bodyMap["iMid"] = iMid
-    #     bodyMap["timeStamp"] = timestamp
-    #     bodyMap["merchantToken"] = merchantToken
-    #
-    #     return bodyMap
+    @staticmethod
+    def getPayoutCancel(body):
+        bodyMap = {}
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        tXid = data["tXid"]
+        merchantToken = MerchantToken.getMerchantTokenPayoutCancel(timestamp, iMid, tXid, merchantKey)
+
+        bodyMap["iMid"] = iMid
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    @staticmethod
+    def getPayoutInquiry(body):
+        bodyMap = {}
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        accountNo = data["accountNo"]
+        tXid = data["tXid"]
+        merchantToken = MerchantToken.getMerchantTokenPayoutInquiry(timestamp, iMid, tXid, accountNo, merchantKey)
+
+        bodyMap["iMid"] = iMid
+        bodyMap["timeStamp"] = timestamp
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap

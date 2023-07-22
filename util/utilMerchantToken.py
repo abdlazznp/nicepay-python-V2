@@ -42,3 +42,16 @@ class MerchantToken:
         log.info(f"util - Generated MerchantToken : {merchantToken}")
         return merchantToken
 
+    @staticmethod
+    def getMerchantTokenPayoutCancel(timestamp, iMid, tXid, merchantKey):
+        data = f"{timestamp}{iMid}{tXid}{merchantKey}"
+        merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
+        return merchantToken
+
+    @staticmethod
+    def getMerchantTokenPayoutInquiry(timestamp, iMid, tXid, accountNo, merchantKey):
+        data = f"{timestamp}{iMid}{tXid}{accountNo}{merchantKey}"
+        merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
+        return merchantToken

@@ -20,7 +20,7 @@ class ConstantsGeneral:
     _USER_SESSION_ID = ""
     _USER_AGENT = ""
     _USER_LANGUAGE = ""
-    _SHOP_ID = ""
+    _SHOP_ID = "NICEPAY"
 
     @staticmethod
     def getSandboxBaseUrl():
@@ -93,3 +93,7 @@ class ConstantsGeneral:
     @staticmethod
     def getUserIp():
         return ConstantsGeneral._USER_IP
+
+    @staticmethod
+    def getShopId():
+        return ConstantsGeneral._SHOP_ID
