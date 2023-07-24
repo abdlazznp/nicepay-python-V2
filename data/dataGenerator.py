@@ -272,3 +272,20 @@ class DataGenerator:
         bodyMap["merchantToken"] = merchantToken
 
         return bodyMap
+
+    @staticmethod
+    def getVAFixedOpenReg(body):
+        bodyMap = {}
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        customerId = data["customerId"]
+        merchantToken = MerchantToken.getMerchantTokenVAFixedOpenReg(iMid, customerId, merchantKey)
+
+        bodyMap["iMid"] = iMid
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap

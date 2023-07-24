@@ -155,7 +155,7 @@ class ServiceNicepay:
     @staticmethod
     def serviceVAFixedOpenRegist(data):
         headers = DataGenerator.getTransactionHeader()
-        endpoint = ""
+        endpoint = ConstantsEndpoints.vaFixedOpenRegist()
         response = apiClient.send(host,
                                   headers,
                                   data,

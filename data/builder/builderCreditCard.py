@@ -149,3 +149,18 @@ class BuildCreditCardPayment(BuilderCreditCardPayment):
             self.referenceNo,
             self.amt
         )
+
+
+class CreditCardRecurring:
+    def __init__(self,
+                 recurringToken,
+                 cardCvv):
+        self.recurringToken = recurringToken
+        self.cardCvv = cardCvv
+
+    def dataRecurring(self):
+        return ({
+            "recurringToken": self.recurringToken,
+            "cardCvv": self.cardCvv
+        })
+
