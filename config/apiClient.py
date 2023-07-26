@@ -17,6 +17,8 @@ class apiClient:
         response = requests.post(url=host + endpoint, data=request)
         # print(request)
         # print(response.text)
+
+
         # soup = BeautifulSoup(response.text, 'html.parser')
         # form = soup.find('form')
         # inputFields = form.find_all('input')
@@ -45,7 +47,6 @@ class apiClient:
         # json_data = json.dumps(clean_data, separators=(',', ':'), indent=4)
         endJson = json.loads(json_data)
         print(json_data)
-
 
         # soup = BeautifulSoup(response.text, 'html.parser')
         # form = soup.find('form', attrs={'name': 'mpgsAuthFrm'})

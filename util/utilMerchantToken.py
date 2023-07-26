@@ -62,3 +62,16 @@ class MerchantToken:
         merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
         log.info(f"util - Generated MerchantToken : {merchantToken}")
         return merchantToken
+
+    @staticmethod
+    def getMerchantTokenVAFixedOpenDepositInq(iMid, vacctNo, startDt, merchantKey):
+        data = f"{iMid}{vacctNo}{startDt}{merchantKey}"
+        merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
+        return merchantToken
+
+    @staticmethod
+    def getMerTok(data):
+        merchantToken = hashlib.sha256(data.encode('utf-8')).hexdigest()
+        log.info(f"util - Generated MerchantToken : {merchantToken}")
+        return merchantToken

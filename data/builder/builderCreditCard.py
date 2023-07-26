@@ -68,7 +68,6 @@ class CreditCardPayment:
                  cardNo,
                  cardExpYymm,
                  cardCvv,
-                 merchantToken,
                  referenceNo,
                  amt):
         self.timestamp = timestamp
@@ -76,7 +75,6 @@ class CreditCardPayment:
         self.cardNo = cardNo
         self.cardExpYymm = cardExpYymm
         self.cardCvv = cardCvv
-        self.merchantToken = merchantToken
         self.referenceNo = referenceNo
         self.amt = amt
 
@@ -87,7 +85,6 @@ class CreditCardPayment:
             "cardNo": self.cardNo,
             "cardExpYymm": self.cardExpYymm,
             "cardCvv": self.cardCvv,
-            "merchantToken": self.merchantToken,
             "referenceNo": self.referenceNo,
             "amt": self.amt
         })
@@ -100,7 +97,6 @@ class BuilderCreditCardPayment:
         self.cardNo = None
         self.cardExpYymm = None
         self.cardCvv = None
-        self.merchantToken = None
         self.referenceNo = None
         self.amt = None
 
@@ -124,10 +120,6 @@ class BuilderCreditCardPayment:
         self.cardCvv = cardCvv
         return self
 
-    def setMerchantToken(self, merchantToken):
-        self.merchantToken = merchantToken
-        return self
-
     def setReferenceNo(self, referenceNo):
         self.referenceNo = referenceNo
         return self
@@ -145,7 +137,6 @@ class BuildCreditCardPayment(BuilderCreditCardPayment):
             self.cardNo,
             self.cardExpYymm,
             self.cardCvv,
-            self.merchantToken,
             self.referenceNo,
             self.amt
         )
@@ -164,3 +155,60 @@ class CreditCardRecurring:
             "cardCvv": self.cardCvv
         })
 
+
+class BuilderCreditCardRecurring:
+    def __init__(self):
+        self.recurringToken = None
+        self.cardCvv = None
+
+    def setRecurringToken(self, recurringToken):
+        self.recurringToken = recurringToken
+        return self
+
+    def setCardCvv(self, cardCvv):
+        self.cardCvv = cardCvv
+        return self
+
+
+class BuildCreditCardRecurring(BuilderCreditCardRecurring):
+    def build(self):
+        return CreditCardRecurring(
+            self.recurringToken,
+            self.cardCvv
+        )
+
+
+class CreditCardPreAuth:
+    def __init__(self,
+                 preauthToken,
+                 cardCvv):
+        self.preauthToken = preauthToken
+        self.cardCvv = cardCvv
+
+    def dataPreAuth(self):
+        return ({
+            "recurringToken": self.preauthToken,
+            "cardCvv": self.cardCvv
+        })
+
+
+class BuildCreditCardPreAuth:
+    def __init__(self):
+        self.preauthToken = None
+        self.cardCvv = None
+
+    def setPreAuthToken(self, preauthToken):
+        self.preauthToken = preauthToken
+        return self
+
+    def setCardCvv(self, cardCvv):
+        self.cardCvv = cardCvv
+        return self
+
+
+class BuilderCreditCardPreAuth(BuildCreditCardPreAuth):
+    def build(self):
+        return CreditCardPreAuth(
+            self.preauthToken,
+            self.cardCvv
+        )

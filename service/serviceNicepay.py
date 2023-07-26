@@ -13,6 +13,7 @@ host = ConstantsGeneral.getSandboxBaseUrl()  # Environment
 class ServiceNicepay:
     log.headers("Initialization")
 
+    # REGISTRATION REQUEST
     @staticmethod
     def serviceRequest(body):
         headers = DataGenerator.getTransactionHeader()
@@ -28,6 +29,7 @@ class ServiceNicepay:
         log.info("Response Data : " + json.dumps(data))
         return response
 
+    # PAYMENT REQUEST
     @staticmethod
     def servicePayment(data):
         endpoint = ConstantsEndpoints.payment()
@@ -40,6 +42,7 @@ class ServiceNicepay:
         # log.info(response)
         return response
 
+    # CANCEL REQUEST
     @staticmethod
     def serviceCancel(data):
         headers = DataGenerator.getTransactionHeader()
@@ -55,6 +58,7 @@ class ServiceNicepay:
         # log.info(response)
         return response
 
+    # INQUIRY REQUEST
     @staticmethod
     def serviceInquiry(data):
         headers = DataGenerator.getTransactionHeader()
@@ -67,7 +71,7 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
-
+    # PAYOUT REGISTRATION REQUEST
     @staticmethod
     def servicePayoutReg(data):
         headers = DataGenerator.getTransactionHeader()
@@ -80,6 +84,7 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT APPROVE REQUEST
     @staticmethod
     def servicePayoutApprove(data):
         headers = DataGenerator.getTransactionHeader()
@@ -92,6 +97,7 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT REJECT REQUEST
     @staticmethod
     def servicePayoutReject(data):
         headers = DataGenerator.getTransactionHeader()
@@ -104,10 +110,11 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT INQUIRY REQUEST
     @staticmethod
     def servicePayoutInquiry(data):
         headers = DataGenerator.getTransactionHeader()
-        endpoint = ""
+        endpoint = ConstantsEndpoints.payoutInquiry()
         response = apiClient.send(host,
                                   headers,
                                   data,
@@ -116,10 +123,11 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT CANCEL REQUEST
     @staticmethod
     def servicePayoutCancel(data):
         headers = DataGenerator.getTransactionHeader()
-        endpoint = ""
+        endpoint = ConstantsEndpoints.payoutCancel()
         response = apiClient.send(host,
                                   headers,
                                   data,
@@ -128,10 +136,11 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT BALANCE INQUIRY REQUEST
     @staticmethod
     def servicePayoutBalanceInquiry(data):
         headers = DataGenerator.getTransactionHeader()
-        endpoint = ""
+        endpoint = ConstantsEndpoints.payoutBalanceInq()
         response = apiClient.send(host,
                                   headers,
                                   data,
@@ -140,10 +149,11 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # PAYOUT TRANSACTION HISTORY INQUIRY REQUEST
     @staticmethod
     def servicePayoutTransHistInq(data):
         headers = DataGenerator.getTransactionHeader()
-        endpoint = ""
+        endpoint = ConstantsEndpoints.payoutTransHistInq()
         response = apiClient.send(host,
                                   headers,
                                   data,
@@ -152,6 +162,7 @@ class ServiceNicepay:
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
+    # VA FIXED OPEN REGISTRATION REQUEST
     @staticmethod
     def serviceVAFixedOpenRegist(data):
         headers = DataGenerator.getTransactionHeader()
@@ -163,3 +174,43 @@ class ServiceNicepay:
         log.info("Headers : " + json.dumps(headers))
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
+
+    # VA FIXED OPEN CUSTOMER INQUIRY
+    @staticmethod
+    def serviceVAFixedOpenCustInq(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.vaFixedOpenCustInq()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    # VA FIXED OPEN DEPOSIT INQUIRY
+    @staticmethod
+    def serviceVAFixedOpenDepositInq(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.vaFixedOpenDepositInq()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+
+    # VA FIXED OPEN UPDATE
+    @staticmethod
+    def serviceVAFixedOpenUpdate(data):
+        headers = DataGenerator.getTransactionHeader()
+        endpoint = ConstantsEndpoints.vaFixedOpenCustUpdate()
+        response = apiClient.send(host,
+                                  headers,
+                                  data,
+                                  endpoint)
+        log.info("Headers : " + json.dumps(headers))
+        log.info("Request Data : " + json.dumps(data))
+        log.info("Response Data : " + json.dumps(response))
+

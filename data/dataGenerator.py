@@ -28,7 +28,8 @@ class DataGenerator:
 
         iMid = ConstantsGeneral.getImid()
         merchantKey = ConstantsGeneral.getMerchantKey()
-        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+        # merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+        merchantToken = MerchantToken.getMerTok(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
         currency = ConstantsGeneral.getCurrency()
         dbProcessUrl = ConstantsGeneral.getDbProcessUrl()
 
@@ -283,7 +284,60 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         customerId = data["customerId"]
-        merchantToken = MerchantToken.getMerchantTokenVAFixedOpenReg(iMid, customerId, merchantKey)
+        # merchantToken = MerchantToken.getMerchantTokenVAFixedOpenReg(iMid, customerId, merchantKey)
+        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
+
+        bodyMap["iMid"] = iMid
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    @staticmethod
+    def getVAFixedOpenCustInq(body):
+        bodyMap = {}
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        customerId = data["customerId"]
+        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
+
+        bodyMap["iMid"] = iMid
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    @staticmethod
+    def getVAFixedOpenDepositInq(body):
+        bodyMap = {}
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        vacctNo = data["vacctNo"]
+        startDt = data["startDt"]
+        merchantToken = MerchantToken.getMerTok(f"{iMid}{vacctNo}{startDt}{merchantKey}")
+
+        bodyMap["iMid"] = iMid
+        bodyMap["merchantToken"] = merchantToken
+
+        return bodyMap
+
+    @staticmethod
+    def getVAFixedOpenUpdate(body):
+        bodyMap = {}
+        iMid = ConstantsGeneral.getImid()
+        merchantKey = ConstantsGeneral.getMerchantKey()
+
+        bodyMap.update(body)
+        a = json.dumps(bodyMap)
+        data = json.loads(a)
+        customerId = data["customerId"]
+        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
