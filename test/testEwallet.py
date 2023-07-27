@@ -5,7 +5,7 @@ from service.serviceNicepay import ServiceNicepay
 
 
 class testEwallet:
-    amt = 10000
+    amt = 100
     itemCartData = {
         "img_url": "https://cdn.eraspace.com/pub/media/catalog/product/i/p/iphone_13_pro_max_silver_1_5.jpg",
         "goods_name": "iPhone13ProMax",
