@@ -6,7 +6,7 @@ from service.serviceNicepay import ServiceNicepay
 class testVAFixedOpenCustInq:
     bodyVAFixedOpenInq = (
         builderVirtualAccount.BuildVAFixedOpenCustInq()
-        .setCustomerId("00202202")
+        .setCustomerId("00202208")
         .build()
     )
 

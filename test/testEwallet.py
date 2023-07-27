@@ -24,7 +24,7 @@ class testEwallet:
     bodyEwallet = (
         builderEwallet.BuildEwallet()
         .setPayMethod(ConstantsGeneral.getPayMethodEWallet())
-        .setMitraCd("ESHP")
+        .setMitraCd("DANA")
         .setUserIp(ConstantsGeneral.getUserIp())
         .setAmt(amt)
         .build()

@@ -165,52 +165,39 @@ class ServiceNicepay:
     # VA FIXED OPEN REGISTRATION REQUEST
     @staticmethod
     def serviceVAFixedOpenRegist(data):
-        headers = DataGenerator.getTransactionHeader()
         endpoint = ConstantsEndpoints.vaFixedOpenRegist()
-        response = apiClient.send(host,
-                                  headers,
-                                  data,
-                                  endpoint)
-        log.info("Headers : " + json.dumps(headers))
+        response = apiClient.sendUrl(host,
+                                     data,
+                                     endpoint)
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
     # VA FIXED OPEN CUSTOMER INQUIRY
     @staticmethod
     def serviceVAFixedOpenCustInq(data):
-        headers = DataGenerator.getTransactionHeader()
         endpoint = ConstantsEndpoints.vaFixedOpenCustInq()
-        response = apiClient.send(host,
-                                  headers,
-                                  data,
-                                  endpoint)
-        log.info("Headers : " + json.dumps(headers))
+        response = apiClient.sendUrl(host,
+                                     data,
+                                     endpoint)
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
     # VA FIXED OPEN DEPOSIT INQUIRY
     @staticmethod
     def serviceVAFixedOpenDepositInq(data):
-        headers = DataGenerator.getTransactionHeader()
         endpoint = ConstantsEndpoints.vaFixedOpenDepositInq()
-        response = apiClient.send(host,
-                                  headers,
-                                  data,
-                                  endpoint)
-        log.info("Headers : " + json.dumps(headers))
+        response = apiClient.sendUrl(host,
+                                     data,
+                                     endpoint)
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
 
     # VA FIXED OPEN UPDATE
     @staticmethod
     def serviceVAFixedOpenUpdate(data):
-        headers = DataGenerator.getTransactionHeader()
         endpoint = ConstantsEndpoints.vaFixedOpenCustUpdate()
-        response = apiClient.send(host,
-                                  headers,
-                                  data,
-                                  endpoint)
-        log.info("Headers : " + json.dumps(headers))
+        response = apiClient.sendUrl(host,
+                                     data,
+                                     endpoint)
         log.info("Request Data : " + json.dumps(data))
         log.info("Response Data : " + json.dumps(response))
-

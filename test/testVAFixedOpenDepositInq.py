@@ -6,9 +6,9 @@ from service.serviceNicepay import ServiceNicepay
 class testVAFixedOpenDepositInq:
     bodyVAFixedOpenDepositInq = (
         builderVirtualAccount.BuildVAFixedOpenDepositInq()
-        .setVacctNo("")
-        .setStartDt("")
-        .setEndDt("")
+        .setVacctNo("7007216100202208")
+        .setStartDt("20230727")
+        .setEndDt("20230727")
         .build()
     )
 

@@ -1,4 +1,5 @@
 import json
+import urllib.parse
 from datetime import datetime
 
 from constants.constantsGeneral import ConstantsGeneral
@@ -93,7 +94,7 @@ class DataGenerator:
         bodyMap["billingCountry"] = "Indonesia"
         bodyMap["billingPostCd"] = "10200"
         bodyMap["deliveryNm"] = "Merchant's Name"
-        bodyMap["deliveryPhone"] = "08123456789"
+        bodyMap["deliveryPhone"] = "081227619520"
         bodyMap["deliveryAddr"] = "Jln. Dr. Saharjo No.88"
         bodyMap["deliveryCity"] = "South Jakarta"
         bodyMap["deliveryState"] = "DKI Jakarta"
@@ -135,6 +136,7 @@ class DataGenerator:
         del cleanJson["referenceNo"]
 
         print(cleanJson)
+        # finalData = urllib.parse.urlencode(cleanJson)
         return cleanJson
 
     @staticmethod
@@ -284,12 +286,11 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         customerId = data["customerId"]
-        # merchantToken = MerchantToken.getMerchantTokenVAFixedOpenReg(iMid, customerId, merchantKey)
         merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
-
+        # finalData = urllib.parse.urlencode(bodyMap)
         return bodyMap
 
     @staticmethod
