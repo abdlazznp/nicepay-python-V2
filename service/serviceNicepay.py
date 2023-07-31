@@ -7,7 +7,7 @@ from data.dataGenerator import DataGenerator
 from util.utilLogging import Log
 
 log = Log()
-host = ConstantsGeneral.getSandboxBasgeteUrl()  # Environment
+host = ConstantsGeneral.getSandboxBaseUrl()  # Environment
 
 
 class ServiceNicepay:

@@ -11,6 +11,7 @@ class testPayment:
         .setTimestamp(datetime.now().strftime("%Y%m%d%H%M%S"))
         .setTxid("IONPAYTEST05202307271435343814")
         .setReferenceNo("OrdNo20230727143533")
+        .setCashtag("")
         .setCardNo("5123450000000008")
         .setCardExpYymm("3901")
         .setCardCvv("100")

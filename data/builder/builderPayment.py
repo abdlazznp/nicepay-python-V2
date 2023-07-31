@@ -3,6 +3,7 @@ class Payment:
                  timestamp,
                  tXid,
                  referenceNo,
+                 cashtag,
                  cardNo,
                  cardExpYymm,
                  cardCvv,
@@ -12,6 +13,7 @@ class Payment:
         self.timestamp = timestamp
         self.tXid = tXid
         self.referenceNo = referenceNo
+        self.cashtag = cashtag
         self.cardNo = cardNo
         self.cardExpYymm = cardExpYymm
         self.cardCvv = cardCvv
@@ -24,6 +26,7 @@ class Payment:
             "timeStamp": self.timestamp,
             "tXid": self.tXid,
             "referenceNo": self.referenceNo,
+            "cashtag": self.cashtag,
             "cardNo": self.cardNo,
             "cardExpYymm": self.cardExpYymm,
             "cardCvv": self.cardCvv,
@@ -38,6 +41,7 @@ class BuilderPayment:
         self.timestamp = None
         self.tXid = None
         self.referenceNo = None
+        self.cashtag = None
         self.cardNo = None
         self.cardExpYymm = None
         self.cardCvv = None
@@ -55,6 +59,10 @@ class BuilderPayment:
 
     def setReferenceNo(self, referenceNo):
         self.referenceNo = referenceNo
+        return self
+
+    def setCashtag(self, cashtag):
+        self.cashtag = cashtag
         return self
 
     def setCardNo(self, cardNo):
@@ -88,6 +96,7 @@ class BuildPayment(BuilderPayment):
             self.timestamp,
             self.tXid,
             self.referenceNo,
+            self.cashtag,
             self.cardNo,
             self.cardExpYymm,
             self.cardCvv,

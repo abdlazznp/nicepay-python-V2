@@ -30,7 +30,7 @@ class DataGenerator:
         iMid = ConstantsGeneral.getImid()
         merchantKey = ConstantsGeneral.getMerchantKey()
         # merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
-        merchantToken = MerchantToken.getMerTok(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
         currency = ConstantsGeneral.getCurrency()
         dbProcessUrl = ConstantsGeneral.getDbProcessUrl()
 
@@ -78,7 +78,7 @@ class DataGenerator:
 
         iMid = ConstantsGeneral.getImid()
         merchantKey = ConstantsGeneral.getMerchantKey()
-        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
         currency = ConstantsGeneral.getCurrency()
         dbProcessUrl = ConstantsGeneral.getDbProcessUrl()
 
@@ -125,7 +125,7 @@ class DataGenerator:
         timestamp = data["timeStamp"]
         referenceNo = data["referenceNo"]
         amt = data["amt"]
-        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
 
         bodyMap["callBackUrl"] = callbackUrl
         bodyMap["merchantToken"] = merchantToken
@@ -151,7 +151,7 @@ class DataGenerator:
         data = json.loads(a)
         referenceNo = data["referenceNo"]
         amt = data["amt"]
-        merchantToken = MerchantToken.getMerchantToken(timestamp, iMid, referenceNo, amt, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{referenceNo}{amt}{merchantKey}")
 
         bodyMap["timeStamp"] = timestamp
         bodyMap["iMid"] = iMid
@@ -171,7 +171,7 @@ class DataGenerator:
         data = json.loads(a)
         tXid = data["tXid"]
         amt = data["amt"]
-        merchantToken = MerchantToken.getMerchantTokenCancel(timestamp, iMid, tXid, amt, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{tXid}{amt}{merchantKey}")
 
         bodyMap["timeStamp"] = timestamp
         bodyMap["iMid"] = iMid
@@ -191,7 +191,7 @@ class DataGenerator:
         data = json.loads(a)
         accountNo = data["accountNo"]
         amt = data["amt"]
-        merchantToken = MerchantToken.getMerchantTokenPayoutRegistration(timestamp, iMid, amt, accountNo, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{amt}{accountNo}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["timeStamp"] = timestamp
@@ -210,7 +210,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         tXid = data["tXid"]
-        merchantToken = MerchantToken.getMerchantTokenPayoutApprove(timestamp, iMid, tXid, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{tXid}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["timeStamp"] = timestamp
@@ -229,7 +229,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         tXid = data["tXid"]
-        merchantToken = MerchantToken.getMerchantTokenPayoutReject(timestamp, iMid, tXid, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{tXid}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["timeStamp"] = timestamp
@@ -248,7 +248,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         tXid = data["tXid"]
-        merchantToken = MerchantToken.getMerchantTokenPayoutCancel(timestamp, iMid, tXid, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{tXid}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["timeStamp"] = timestamp
@@ -268,7 +268,7 @@ class DataGenerator:
         data = json.loads(a)
         accountNo = data["accountNo"]
         tXid = data["tXid"]
-        merchantToken = MerchantToken.getMerchantTokenPayoutInquiry(timestamp, iMid, tXid, accountNo, merchantKey)
+        merchantToken = MerchantToken.getMerchantToken(f"{timestamp}{iMid}{tXid}{accountNo}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["timeStamp"] = timestamp
@@ -286,7 +286,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         customerId = data["customerId"]
-        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
+        merchantToken = MerchantToken.getMerchantToken(f"{iMid}{customerId}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
@@ -303,7 +303,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         customerId = data["customerId"]
-        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
+        merchantToken = MerchantToken.getMerchantToken(f"{iMid}{customerId}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
@@ -321,7 +321,7 @@ class DataGenerator:
         data = json.loads(a)
         vacctNo = data["vacctNo"]
         startDt = data["startDt"]
-        merchantToken = MerchantToken.getMerTok(f"{iMid}{vacctNo}{startDt}{merchantKey}")
+        merchantToken = MerchantToken.getMerchantToken(f"{iMid}{vacctNo}{startDt}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
@@ -338,7 +338,7 @@ class DataGenerator:
         a = json.dumps(bodyMap)
         data = json.loads(a)
         customerId = data["customerId"]
-        merchantToken = MerchantToken.getMerTok(f"{iMid}{customerId}{merchantKey}")
+        merchantToken = MerchantToken.getMerchantToken(f"{iMid}{customerId}{merchantKey}")
 
         bodyMap["iMid"] = iMid
         bodyMap["merchantToken"] = merchantToken
